@@ -1,0 +1,28 @@
+services:
+  openclaw-codex:
+    image: openclaw-codex:local
+    container_name: openclaw-codex
+    restart: unless-stopped
+    environment:
+      OPENCLAW_GATEWAY_TOKEN: ${OPENCLAW_GATEWAY_TOKEN:-}
+      OPENCLAW_STATE_DIR: /data/openclaw
+      OPENCLAW_CONFIG_PATH: ${OPENCLAW_CONFIG_PATH:-/app/openclaw.json}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+    ports:
+      - "18789:18789"
+      - "1455:1455"
+    volumes:
+      - ${HOME}/.codex:/root/.codex
+      - openclaw_state:/data/openclaw
+
+  chromium-node:
+    image: chromium-stable:latest
+    container_name: chromium-node
+    restart: unless-stopped
+    ports:
+      - "3040:3040"
+    volumes:
+      - ${HOME}/chromium-data:/config
+
+volumes:
+  openclaw_state:

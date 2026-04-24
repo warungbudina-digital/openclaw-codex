@@ -1,0 +1,25 @@
+{
+  "$schema": "https://openclaw.ai/config.schema.json",
+  "gateway": {
+    "mode": "local",
+    "port": 18789,
+    "bind": "lan",
+    "auth": {
+      "mode": "token",
+      "token": "dev-gateway-token-change-me"
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": "codex-cli/gpt-5.4",
+      "models": {
+        "codex-cli/gpt-5.4": {}
+      },
+      "cliBackends": {
+        "codex-cli": {
+          "command": "codex"
+        }
+      }
+    }
+  }
+}

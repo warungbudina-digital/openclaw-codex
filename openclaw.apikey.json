@@ -1,0 +1,20 @@
+{
+  "$schema": "https://openclaw.ai/config.schema.json",
+  "gateway": {
+    "mode": "local",
+    "port": 18789,
+    "bind": "lan",
+    "auth": {
+      "mode": "token",
+      "token": "dev-gateway-token-change-me"
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": "openai/gpt-5.4",
+      "models": {
+        "openai/gpt-5.4": {}
+      }
+    }
+  }
+}
